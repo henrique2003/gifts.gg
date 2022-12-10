@@ -5,14 +5,13 @@ import theme from "./theme";
 import GlobalStyle from "./theme/GlobalStyle";
 
 // Components
-import { Home, Store } from "./pages";
-import Routes from "./Routes";
+import { Router } from "./Router";
 
 function App(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Routes />
+      <Router />
     </ThemeProvider>
   );
 }
