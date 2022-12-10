@@ -38,7 +38,7 @@ export const LoginForm = styled.form`
   text-align: center;
 `;
 
-export const Title = styled.h1`
+export const Logo = styled.h1`
   font-size: 30px;
   font-weight: bold;
   color: ${({ theme }) => theme.COLORS.BLACK};

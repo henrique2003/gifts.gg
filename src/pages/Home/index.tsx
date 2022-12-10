@@ -1,5 +1,6 @@
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
+import { Logo } from "../../styles/logo";
 import * as S from "./styles";
 
 export function Home(): JSX.Element {
@@ -8,7 +9,7 @@ export function Home(): JSX.Element {
       <S.HomeBannerImg></S.HomeBannerImg>
       <S.LoginBanner>
         <S.LoginForm>
-          <S.Title>GIFTS.GG</S.Title>
+          <Logo>GIFTS.GG</Logo>
           <S.SubTitle>Faça login e comece a usar!</S.SubTitle>
           <S.InputGroup>
             <p>Endereço de e-mail</p>

@@ -1,6 +1,7 @@
 import { BsFillHandbagFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 
+import { Logo } from "../../styles/logo";
 import * as S from "./styles";
 
 export const Store: React.FC = () => {
@@ -8,7 +9,7 @@ export const Store: React.FC = () => {
     <S.Container>
       <S.Navbar>
         <S.Row>
-          <S.Logo>GIFTS.GG</S.Logo>
+          <Logo>GIFTS.GG</Logo>
           <S.ActionsContainer>
             <S.BtnCart>
               <BsFillHandbagFill size={17} />

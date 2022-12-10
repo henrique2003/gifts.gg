@@ -18,13 +18,6 @@ export const Row = styled.div`
   width: 100%;
 `;
 
-export const Logo = styled.div`
-  font-size: 30px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.COLORS.BLACK};
-  font-family: "Inter", sans-serif;
-`;
-
 export const ActionsContainer = styled.div`
   display: flex;
 
