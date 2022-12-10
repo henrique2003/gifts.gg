@@ -4,8 +4,48 @@ import { FaUserAlt } from "react-icons/fa";
 import { Logo } from "../../styles/logo";
 import * as S from "./styles";
 import { ifood, playstation, tinder, xbox } from "../../assets";
+import Card from "../../components/Card";
+
+const products = [
+  {
+    id: "9af44b84-27d1-4e29-8f77-d41c8c963cc5",
+    title: "Gift Card Tinder: 100 Reais - Código Digital",
+    cost: 9.99,
+    type: "tinder",
+  },
+  {
+    id: "110bcd3d-9592-4e64-bac8-f244a830b05a",
+    title: "Gift Card Xbox: 200 Reais - Código Digital",
+    cost: 199.99,
+    type: "xbox",
+  },
+  {
+    id: "1s10bcd3d-9592-4e64-bac8-f244a830b05a",
+    title: "Gift Card Ifood: 50 Reais - Código Digital",
+    cost: 49.99,
+    type: "ifood",
+  },
+  {
+    id: "11s0bcd3d-9592-4e64-bac8-f244a830b05a",
+    title: "Gift Card Playstation: 150 Reais - Código Digital",
+    cost: 149.99,
+    type: "playstation",
+  },
+];
 
 export const Store: React.FC = () => {
+  function load_image(type: string): string {
+    if (type === "tinder") {
+      return tinder;
+    } else if (type === "xbox") {
+      return xbox;
+    } else if (type === "ifood") {
+      return ifood;
+    } else {
+      return playstation;
+    }
+  }
+
   return (
     <S.Container>
       <S.Navbar>
@@ -28,34 +68,16 @@ export const Store: React.FC = () => {
         </section>
       </S.Banner>
       <S.GridCards>
-        <S.Card>
-          <img src={tinder} alt="tinder" />
-          <h2>Gift Card Tinder: 10 Reais - Código Digital</h2>
-          <p>R$9,99</p>
-          <small>À vista no PIX</small>
-          <button type="button">comprar</button>
-        </S.Card>
-        <S.Card>
-          <img src={xbox} alt="xbox" />
-          <h2>Gift Card Xbox: 200 Reais - Código Digital</h2>
-          <p>R$199,99</p>
-          <small>À vista no PIX</small>
-          <button type="button">comprar</button>
-        </S.Card>
-        <S.Card>
-          <img src={ifood} alt="ifood" />
-          <h2>Gift Card Ifood: 50 Reais - Código Digital</h2>
-          <p>R$49,99</p>
-          <small>À vista no PIX</small>
-          <button type="button">comprar</button>
-        </S.Card>
-        <S.Card>
-          <img src={playstation} alt="playstation" />
-          <h2>Gift Card Playstation: 150 Reais - Código Digital</h2>
-          <p>R$149,99</p>
-          <small>À vista no PIX</small>
-          <button type="button">comprar</button>
-        </S.Card>
+        {products &&
+          products.map(({ id, cost, title, type }) => (
+            <Card
+              id={id}
+              cost={cost}
+              title={title}
+              key={id}
+              img={load_image(type)}
+            />
+          ))}
       </S.GridCards>
     </S.Container>
   );
