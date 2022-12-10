@@ -2,6 +2,7 @@ export default {
   COLORS: {
     WHITE: "#FFFFFF",
     BLUE: "#48A1D9",
+    DARK_BLUE: "#4090c3",
     PINK: "#F2358D",
     DARK_PINK: "#dd3080",
     BLACK: "#1E1E1E",
