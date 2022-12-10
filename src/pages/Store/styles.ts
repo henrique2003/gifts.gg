@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import banner from "../../assets/banner-store.png";
+
 export const Container = styled.div`
   width: 100%;
 `;
@@ -49,5 +51,32 @@ export const BtnCart = styled.button`
     color: ${({ theme }) => theme.COLORS.WHITE};
     margin-top: -3px;
     margin-right: -1px;
+  }
+`;
+
+export const Banner = styled.div`
+  background: url(${banner});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 350px;
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: ${({ theme }) => theme.COLORS.BLACK_OPACITY};
+    width: 100%;
+    height: 100%;
+  }
+
+  h2 {
+    font-size: 60px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    cursor: pointer;
+    padding: 0 30px;
   }
 `;

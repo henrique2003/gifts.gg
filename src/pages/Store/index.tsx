@@ -21,6 +21,11 @@ export const Store: React.FC = () => {
           </S.ActionsContainer>
         </S.Row>
       </S.Navbar>
+      <S.Banner>
+        <section>
+          <h2>GIFTS CARD</h2>
+        </section>
+      </S.Banner>
     </S.Container>
   );
 };
