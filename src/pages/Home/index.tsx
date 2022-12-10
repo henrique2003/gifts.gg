@@ -2,7 +2,7 @@ import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
 import * as S from "./styles";
 
-function Home(): JSX.Element {
+export function Home(): JSX.Element {
   return (
     <S.Container>
       <S.HomeBannerImg></S.HomeBannerImg>
@@ -31,5 +31,3 @@ function Home(): JSX.Element {
     </S.Container>
   );
 }
-
-export default Home;
