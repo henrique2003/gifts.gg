@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
-import theme from "./theme";
+import theme from "../theme";
+import GlobalStyle from "../theme/GlobalStyle";
 import * as S from "./styles";
-import GlobalStyle from "./theme/GlobalStyle";
 
 function App(): JSX.Element {
   return (

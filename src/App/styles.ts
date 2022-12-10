@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bannerHomeImg from "./assets/bannaer-login.png";
+import bannerHomeImg from "../assets/bannaer-login.png";
 
 export const Container = styled.div`
   width: 100%;
@@ -14,6 +14,10 @@ export const HomeBannerImg = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const LoginBanner = styled.div`
@@ -21,6 +25,11 @@ export const LoginBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 900px) {
+    margin-top: 200px;
+    padding: 0 30px;
+  }
 `;
 
 export const LoginForm = styled.form`
