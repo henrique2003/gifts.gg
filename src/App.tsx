@@ -6,8 +6,7 @@ import GlobalStyle from "./theme/GlobalStyle";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
-import { Home } from "./pages/Home";
-import { Store } from "./pages/Store";
+import { Home, Store } from "./pages";
 
 const router = createBrowserRouter([
   {
