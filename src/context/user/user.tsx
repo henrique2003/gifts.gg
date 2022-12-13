@@ -7,7 +7,11 @@ export const UserContext = createContext({} as UserContextData);
 export const UserProvider: React.FC<{ children: JSX.Element }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | {}>({});
+  const [user, setUser] = useState<User>({
+    id: 0,
+    email: "",
+    Transaction: [],
+  });
 
   function changeUserData(user: User): void {
     setUser(user);

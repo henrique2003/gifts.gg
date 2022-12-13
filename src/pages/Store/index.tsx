@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { BsFillHandbagFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 
@@ -5,37 +6,28 @@ import { Logo } from "../../styles/logo";
 import * as S from "./styles";
 import { ifood, playstation, tinder, xbox } from "../../assets";
 import Card from "../../components/Card";
-
-const products = [
-  {
-    id: "9af44b84-27d1-4e29-8f77-d41c8c963cc5",
-    title: "Gift Card Tinder: 100 Reais - Código Digital",
-    cost: 9.99,
-    type: "tinder",
-  },
-  {
-    id: "110bcd3d-9592-4e64-bac8-f244a830b05a",
-    title: "Gift Card Xbox: 200 Reais - Código Digital",
-    cost: 199.99,
-    type: "xbox",
-  },
-  {
-    id: "1s10bcd3d-9592-4e64-bac8-f244a830b05a",
-    title: "Gift Card Ifood: 50 Reais - Código Digital",
-    cost: 49.99,
-    type: "ifood",
-  },
-  {
-    id: "11s0bcd3d-9592-4e64-bac8-f244a830b05a",
-    title: "Gift Card Playstation: 150 Reais - Código Digital",
-    cost: 149.99,
-    type: "playstation",
-  },
-];
+import api from "../../services/api";
+import { Product } from "../../context/user/types";
 
 type ImageCard = "tinder" | "xbox" | "ifood" | "playstation";
 
 export const Store: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    async function loadProducts(): Promise<void> {
+      try {
+        const { data } = await api.get("/products");
+
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    loadProducts();
+  }, []);
+
   function load_image(type: ImageCard): string {
     if (type === "tinder") {
       return tinder;
@@ -70,7 +62,7 @@ export const Store: React.FC = () => {
         </section>
       </S.Banner>
       <S.GridCards>
-        {products &&
+        {products.length > 0 &&
           products.map(({ id, cost, title, type }) => (
             <Card
               id={id}

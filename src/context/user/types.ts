@@ -19,6 +19,6 @@ export interface Product {
 }
 
 export type UserContextData = {
-  user: User | {};
+  user: User;
   changeUserData: (user: User) => void;
 };
