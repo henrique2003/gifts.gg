@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { BsFillHandbagFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
+import { useAlert } from "react-alert";
+import { useNavigate } from "react-router-dom";
 
 import { Logo } from "../../styles/logo";
 import * as S from "./styles";
@@ -8,11 +10,16 @@ import { ifood, playstation, tinder, xbox } from "../../assets";
 import Card from "../../components/Card";
 import api from "../../services/api";
 import { Product } from "../../context/user/types";
+import { UserContext } from "../../context/user/user";
 
 type ImageCard = "tinder" | "xbox" | "ifood" | "playstation";
 
 export const Store: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+
+  const { changeUserData } = useContext(UserContext);
+  const navigate = useNavigate();
+  const alert = useAlert();
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
@@ -40,6 +47,17 @@ export const Store: React.FC = () => {
     }
   }
 
+  function logout(): void {
+    changeUserData({
+      id: 0,
+      email: "",
+      Transaction: [],
+    });
+    localStorage.removeItem("token");
+    navigate("/");
+    alert.success("Usuário deslogado");
+  }
+
   return (
     <S.Container>
       <S.Navbar>
@@ -49,7 +67,7 @@ export const Store: React.FC = () => {
             <S.BtnCart>
               <BsFillHandbagFill size={17} />
             </S.BtnCart>
-            <S.BtnCart id="logout">
+            <S.BtnCart id="logout" onClick={() => logout()}>
               <FaUserAlt size={17} />
             </S.BtnCart>
             <label htmlFor="logout">Log out</label>
