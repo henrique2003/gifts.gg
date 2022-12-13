@@ -33,8 +33,10 @@ const products = [
   },
 ];
 
+type ImageCard = "tinder" | "xbox" | "ifood" | "playstation";
+
 export const Store: React.FC = () => {
-  function load_image(type: string): string {
+  function load_image(type: ImageCard): string {
     if (type === "tinder") {
       return tinder;
     } else if (type === "xbox") {
@@ -75,7 +77,7 @@ export const Store: React.FC = () => {
               cost={cost}
               title={title}
               key={id}
-              img={load_image(type)}
+              img={load_image(type as ImageCard)}
             />
           ))}
       </S.GridCards>

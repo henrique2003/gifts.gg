@@ -14,7 +14,7 @@ const Card: React.FC<Props> = ({ img, title, cost }) => {
     <S.Card>
       <img src={img} alt="ifood" />
       <h2>{title}</h2>
-      <p>R$%{cost.toString().replace(".", ",")}</p>
+      <p>R${cost.toString().replace(".", ",")}</p>
       <small>À vista no PIX</small>
       <button type="button">comprar</button>
     </S.Card>
