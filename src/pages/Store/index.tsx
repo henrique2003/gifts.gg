@@ -100,18 +100,20 @@ export const Store: React.FC = () => {
           <h2>GIFTS CARD</h2>
         </section>
       </S.Banner>
-      <S.GridCards>
-        {products.length > 0 &&
-          products.map(({ id, cost, title, type }) => (
-            <Card
+      <S.Spacing>
+        <S.GridCards>
+          {products.length > 0 &&
+            products.map(({ id, cost, title, type }) => (
+              <Card
               id={id}
               cost={cost}
               title={title}
               key={id}
               img={load_image(type as ImageCard)}
-            />
-          ))}
-      </S.GridCards>
+              />
+              ))}
+        </S.GridCards>
+      </S.Spacing>
     </S.Container>
   );
 };

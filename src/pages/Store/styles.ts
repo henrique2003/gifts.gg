@@ -86,6 +86,10 @@ export const Banner = styled.div`
   }
 `;
 
+export const Spacing = styled.div`
+  padding: 0 30px;
+`
+
 export const GridCards = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -93,5 +97,15 @@ export const GridCards = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 60px 30px;
+  padding: 60px 0;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 270px;
+  }
 `;
