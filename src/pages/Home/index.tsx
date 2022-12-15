@@ -9,15 +9,18 @@ import * as S from "./styles";
 import api from "../../services/api";
 import { UserContext } from "../../context/user/user";
 
+type AuthUser = 'login' | 'register'
+
 export function Home(): JSX.Element {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [createAccount, setCreateAccount] = useState<boolean>(false);
 
   const alert = useAlert();
   const { changeUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const login = async (e: FormEvent) => {
+  const authentication = async (e: FormEvent) => {
     e.preventDefault();
 
     // Validate email
@@ -35,7 +38,7 @@ export function Home(): JSX.Element {
     }
 
     try {
-      const { data } = await api.post("/user/login", {
+      const { data } = await api.post(`/user/${createAccount ? 'register' : 'login'}`, {
         email,
         password,
       });
@@ -58,9 +61,9 @@ export function Home(): JSX.Element {
     <S.Container>
       <S.HomeBannerImg></S.HomeBannerImg>
       <S.LoginBanner>
-        <S.LoginForm onSubmit={(e) => login(e)}>
+        <S.LoginForm onSubmit={(e) => authentication(e)}>
           <Logo>GIFTS.GG</Logo>
-          <S.SubTitle>Faça login e comece a usar!</S.SubTitle>
+          <S.SubTitle>{createAccount ? 'Crie uma conta e comece a usar!' : 'Faça login e comece a usar!'}</S.SubTitle>
           <S.InputGroup>
             <p>Endereço de e-mail</p>
             <S.Input>
@@ -86,9 +89,13 @@ export function Home(): JSX.Element {
                 }}
               />
             </S.Input>
-            <S.Submit type="submit">Entrar na plataforma</S.Submit>
+            <S.Submit type="submit">
+            {createAccount ? 'Criar conta agora' : 'Entrar na plataforma'}
+            </S.Submit>
           </S.InputGroup>
-          <S.ForgetPassword>Não possui conta? Crie uma agora!</S.ForgetPassword>
+          <S.CreateAccount type="button" onClick={() => setCreateAccount(!createAccount)}>
+            {createAccount ? 'Já possui conta? Entrar agora!' : 'Não possui conta? Crie uma agora!'}
+          </S.CreateAccount>
         </S.LoginForm>
       </S.LoginBanner>
     </S.Container>

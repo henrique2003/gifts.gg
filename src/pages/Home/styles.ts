@@ -111,12 +111,15 @@ export const Submit = styled.button`
   }
 `;
 
-export const ForgetPassword = styled.p`
+export const CreateAccount = styled.button`
+  border: none;
+  background: transparent;
+  outline: none;
   font-size: 17px;
   font-weight: lighter;
   border-bottom: 1px solid ${({ theme }) => theme.COLORS.BLACK};
   color: ${({ theme }) => theme.COLORS.BLACK};
-  max-width: 270px;
+  max-width: 280px;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
