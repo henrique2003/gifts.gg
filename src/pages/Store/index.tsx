@@ -22,6 +22,26 @@ export const Store: React.FC = () => {
   const alert = useAlert();
 
   useEffect(() => {
+    async function authUser(): Promise<void> {
+      const token = localStorage.getItem("token");
+      
+      if (!token) {
+        return navigate("/");
+      }
+
+      try {
+        // Set Token
+        api.defaults.headers.common["authorization"] = JSON.parse(token);
+
+        // Load User
+        const { data } = await api.get("/user");
+
+        changeUserData(data.user);
+      } catch (error) {        
+        return navigate("/");
+      }
+    }
+
     async function loadProducts(): Promise<void> {
       try {
         const { data } = await api.get("/products");
@@ -32,6 +52,7 @@ export const Store: React.FC = () => {
       }
     }
 
+    authUser();
     loadProducts();
   }, []);
 

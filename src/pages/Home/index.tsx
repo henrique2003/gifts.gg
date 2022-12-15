@@ -42,16 +42,15 @@ export function Home(): JSX.Element {
 
       const { user, token } = data;
 
-      localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("token", JSON.stringify(`Bearer ${token}`));
 
       changeUserData(user);
 
       alert.success("Usuário logado");
 
       navigate("/loja");
-    } catch (error) {
-      console.log(error);
-      alert.error("Erro no servidor");
+    } catch (error) {      
+      alert.error("Usuário ou senha incorretos")
     }
   };
 
