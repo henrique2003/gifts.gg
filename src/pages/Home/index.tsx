@@ -63,7 +63,7 @@ export function Home(): JSX.Element {
       <S.LoginBanner>
         <S.LoginForm onSubmit={(e) => authentication(e)}>
           <Logo>GIFTS.GG</Logo>
-          <S.SubTitle>{createAccount ? 'Crie uma conta e comece a usar!' : 'Faça login e comece a usar!'}</S.SubTitle>
+          <S.SubTitle>{createAccount ? 'Crie uma conta e comece a comprar!' : 'Faça login e comece a usar!'}</S.SubTitle>
           <S.InputGroup>
             <p>Endereço de e-mail</p>
             <S.Input>

@@ -47,7 +47,7 @@ export const Logo = styled.h1`
 
 export const SubTitle = styled.h2`
   font-size: 19px;
-  font-weight: lighter;
+  font-weight: 300;
   color: ${({ theme }) => theme.COLORS.BLACK};
   margin-bottom: 40px;
   font-family: "Inter", sans-serif;
@@ -116,10 +116,10 @@ export const CreateAccount = styled.button`
   background: transparent;
   outline: none;
   font-size: 17px;
-  font-weight: lighter;
+  font-weight: 300;
   border-bottom: 1px solid ${({ theme }) => theme.COLORS.BLACK};
   color: ${({ theme }) => theme.COLORS.BLACK};
-  max-width: 280px;
+  max-width: 320px;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
