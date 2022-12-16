@@ -52,7 +52,7 @@ export function Home(): JSX.Element {
       alert.success("Usuário logado");
 
       navigate("/loja");
-    } catch (error) {       
+    } catch (error) {        
       alert.error("Usuário ou senha incorretos")
     }
   };

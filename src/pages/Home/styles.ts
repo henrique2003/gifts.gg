@@ -30,6 +30,11 @@ export const LoginBanner = styled.div`
     margin-top: 200px;
     padding: 0 30px;
   }
+
+  @media (max-width: 600px) {
+    margin-top: 100px;
+    margin-bottom: 70px;
+  }
 `;
 
 export const LoginForm = styled.form`
