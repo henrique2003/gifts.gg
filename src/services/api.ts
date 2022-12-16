@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://18.231.4.115:3333/api",
+  baseURL: "https://gifts-gg-backend.vercel.app/api",
 });
 
 export default api;
